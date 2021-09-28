@@ -9,6 +9,9 @@ import android.os.Handler;
 import com.gineuscrypticalsoft.busticketsystem.R;
 import com.gineuscrypticalsoft.busticketsystem.view.MainActivity;
 import com.gineuscrypticalsoft.busticketsystem.view.registration.SignIn;
+import com.gineuscrypticalsoft.busticketsystem.view.registration.SignUp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -20,8 +23,7 @@ public class SplashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                // This method will be executed once the timer is over
-                Intent i = new Intent(SplashScreen.this, SignIn.class);
+                Intent i = new Intent(SplashScreen.this, MainActivity.class);
                 startActivity(i);
                 finish();
             }

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "244464220397",
+    "project_id": "bus-ticket-management-sy-eccc7",
+    "storage_bucket": "bus-ticket-management-sy-eccc7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:244464220397:android:2698433db3558f9ead34e4",
+        "android_client_info": {
+          "package_name": "com.gineuscrypticalsoft.busticketsystem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "244464220397-8112hv42uufsmqhtk2srue8honjvt7ih.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gineuscrypticalsoft.busticketsystem",
+            "certificate_hash": "b5fdd5d9256f721e93fbf391dffad4d16aa8d352"
+          }
+        },
+        {
+          "client_id": "244464220397-l0ftinf12rqf8b5l1jqqilfsg3v714u8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRpZqpx1n81A1_xqbkJV1VQGSMYigranA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "244464220397-l0ftinf12rqf8b5l1jqqilfsg3v714u8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

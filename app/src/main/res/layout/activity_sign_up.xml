@@ -52,6 +52,27 @@
             android:textColorHighlight="@color/white"/>
 
         <EditText
+            android:id="@+id/edit_text_sign_up_phone"
+            android:layout_width="match_parent"
+            android:inputType="phone"
+            android:layout_height="45sp"
+            android:layout_margin="10dp"
+            android:paddingStart="2sp"
+            android:paddingEnd="0sp"
+            android:background="@drawable/email_round"
+            android:drawableStart="@drawable/ic_baseline_call"
+            android:drawablePadding="10dp"
+            app:drawableTint="@color/purple_500"
+            android:hint="@string/phone"
+            android:layout_gravity="start|center"
+            android:textSize="12sp"
+            android:singleLine="true"
+            android:maxLines="1"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textColorHighlight="@color/white"/>
+
+        <EditText
             android:id="@+id/edit_text_sign_up_password"
             android:layout_width="match_parent"
             android:inputType="textPassword"

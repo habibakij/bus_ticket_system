@@ -1,9 +1,11 @@
 package com.gineuscrypticalsoft.busticketsystem.view.registration;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,6 +14,13 @@ import android.widget.Toast;
 
 import com.gineuscrypticalsoft.busticketsystem.R;
 import com.gineuscrypticalsoft.busticketsystem.view.MainActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import static android.content.ContentValues.TAG;
 
 public class SignIn extends AppCompatActivity {
 
@@ -24,6 +33,7 @@ public class SignIn extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
         FindView();
+        setTitle("Sign In");
 
         btnLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,8 +47,7 @@ public class SignIn extends AppCompatActivity {
                 } else if (editTextPassword.getText().toString().length() < 6){
                     Toast.makeText(SignIn.this, "Password At least 6 Char Long", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(SignIn.this, "Log in successfully", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(SignIn.this, MainActivity.class));
+
                 }
             }
         });
@@ -50,6 +59,7 @@ public class SignIn extends AppCompatActivity {
             }
         });
     }
+
     void FindView(){
         btnLogIn= findViewById(R.id.btn_log_in);
         editTextEmail= findViewById(R.id.edit_text_log_email);
