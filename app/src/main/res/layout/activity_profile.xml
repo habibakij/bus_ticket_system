@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.profile.Profile"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/account_circle_24"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginStart="30sp"
+            android:layout_marginEnd="20sp"
+            android:background="#EEEDFC">
+
+            <TextView
+                android:layout_width="0sp"
+                android:layout_height="35dp"
+                android:layout_weight="1"
+                android:gravity="center|left"
+                android:textSize="12sp"
+                android:paddingStart="8sp"
+                android:paddingEnd="0sp"
+                android:text="Name: "/>
+
+            <TextView
+                android:id="@+id/txt_name"
+                android:layout_width="0sp"
+                android:layout_height="35dp"
+                android:layout_weight="2"
+                android:gravity="center|left"
+                android:textSize="12sp"
+                android:paddingStart="5sp"
+                android:paddingEnd="0sp"
+                android:text="@string/address"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginStart="30sp"
+            android:layout_marginEnd="20sp"
+            android:background="#E6E4FB">
+
+            <TextView
+                android:layout_width="0sp"
+                android:layout_height="35dp"
+                android:layout_weight="1"
+                android:gravity="center|left"
+                android:textSize="12sp"
+                android:paddingStart="8sp"
+                android:paddingEnd="0sp"
+                android:text="@string/email"/>
+
+            <TextView
+                android:id="@+id/txt_email"
+                android:layout_width="0sp"
+                android:layout_height="35dp"
+                android:layout_weight="2"
+                android:gravity="center|left"
+                android:textSize="12sp"
+                android:paddingStart="5sp"
+                android:paddingEnd="0sp"
+                android:text="@string/address"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginStart="30sp"
+            android:layout_marginEnd="20sp"
+            android:background="#EEEDFC">
+
+            <TextView
+                android:layout_width="0sp"
+                android:layout_height="35dp"
+                android:layout_weight="1"
+                android:gravity="center|left"
+                android:textSize="12sp"
+                android:paddingStart="8sp"
+                android:paddingEnd="0sp"
+                android:text="@string/phoneText"/>
+
+            <TextView
+                android:id="@+id/txt_phone"
+                android:layout_width="0sp"
+                android:layout_height="35dp"
+                android:layout_weight="2"
+                android:gravity="center|left"
+                android:textSize="12sp"
+                android:paddingStart="5sp"
+                android:paddingEnd="0sp"
+                android:text="@string/address"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginStart="30sp"
+            android:layout_marginEnd="20sp"
+            android:background="#E6E4FB">
+
+            <TextView
+                android:layout_width="0sp"
+                android:layout_height="35dp"
+                android:layout_weight="1"
+                android:gravity="center|left"
+                android:paddingStart="8sp"
+                android:textSize="12sp"
+                android:paddingEnd="0sp"
+                android:text="@string/address"/>
+
+            <TextView
+                android:id="@+id/txt_address"
+                android:layout_width="0sp"
+                android:layout_height="35dp"
+                android:layout_weight="2"
+                android:gravity="center|left"
+                android:paddingStart="5sp"
+                android:textSize="12sp"
+                android:paddingEnd="0sp"
+                android:text="@string/address"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btn_profile_edit"
+            android:layout_width="200sp"
+            android:layout_height="45sp"
+            android:textColor="@color/white"
+            android:text="@string/edit"
+            android:drawableEnd="@drawable/ic_baseline_edit"
+            android:drawableTint="@color/white"
+            android:textAllCaps="false"
+            android:shadowColor="@android:color/transparent"
+            android:layout_marginTop="10sp"
+            android:background="@drawable/profile_round"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

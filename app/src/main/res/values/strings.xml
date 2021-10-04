@@ -15,14 +15,13 @@
     /// its my area
     <string name="splash_text">Have a nice journey.</string>
     <string name="todo">TODO</string>
-    <string name="from">From</string>
     <string name="enter_city">Enter City</string>
-    <string name="to">To</string>
     <string name="pick_your_journey_date">Pick Your Journey Date</string>
     <string name="select_your_journey_date">Select Your Journey Date</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="phone">01711-000111</string>
+    <string name="phoneText">Phone</string>
     <string name="remember_password">Remember Password</string>
     <string name="forget_password">Forget Password</string>
     <string name="log_in">Log In</string>
@@ -30,6 +29,27 @@
     <string name="you_have_no_account_sign_up"><i>You have no account?</i></string>
     <string name="confirm_password">Confirm Password</string>
     <string name="register">Sign Up</string>
+    <string name="edit">Edit</string>
+    <string name="update">Update</string>
+    <string name="address">Address</string>
+    <string name="name">Name</string>
+    <string name="carName">car name</string>
+    <string name="acornon">ac/ non ac</string>
+    <string name="select_start_time">select start time</string>
+    <string name="submit">Submit</string>
+    <string name="ok">OK</string>
+    <string name="select_end_time">select end time</string>
+    <string name="to">To</string>
+    <string name="from">From</string>
+    <string name="carId">car serial id</string>
+    <string name="SAVE_ID">SAVE_ID_FOR_NEXT_UPLOAD</string>
+    <string name="seatRent">seat rent</string>
+    <string name="carPriceSample">850 TK</string>
+    <string name="departure_time">Departure Time</string>
+    <string name="arrivalTime">Arrival Time</string>
+    <string name="timeSample1">10:00 AM</string>
+    <string name="timeSample2">7:00 PM</string>
+    <string name="lastUploadSerial">last upload serial</string>
 
 
 </resources>
