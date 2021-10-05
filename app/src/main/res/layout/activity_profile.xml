@@ -19,7 +19,7 @@
             android:id="@+id/profile_image"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:src="@drawable/account_circle_24"/>
+            android:src="@drawable/profileimage"/>
 
     </LinearLayout>
 
@@ -36,29 +36,39 @@
             android:orientation="horizontal"
             android:gravity="center"
             android:layout_marginStart="30sp"
-            android:layout_marginEnd="20sp"
-            android:background="#EEEDFC">
+            android:layout_marginEnd="30sp">
 
             <TextView
                 android:layout_width="0sp"
-                android:layout_height="35dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center|left"
                 android:textSize="12sp"
                 android:paddingStart="8sp"
                 android:paddingEnd="0sp"
-                android:text="Name: "/>
+                android:background="#EEEDFC"
+                android:text="@string/name"/>
 
             <TextView
                 android:id="@+id/txt_name"
                 android:layout_width="0sp"
-                android:layout_height="35dp"
+                android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:gravity="center|left"
                 android:textSize="12sp"
+                android:background="#E6E4FB"
                 android:paddingStart="5sp"
                 android:paddingEnd="0sp"
                 android:text="@string/address"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0.50sp"
+            android:background="@color/GRAY"
+            android:layout_marginStart="30sp"
+            android:layout_marginEnd="30sp">
 
         </LinearLayout>
 
@@ -68,15 +78,15 @@
             android:orientation="horizontal"
             android:gravity="center"
             android:layout_marginStart="30sp"
-            android:layout_marginEnd="20sp"
-            android:background="#E6E4FB">
+            android:layout_marginEnd="30sp">
 
             <TextView
                 android:layout_width="0sp"
-                android:layout_height="35dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center|left"
                 android:textSize="12sp"
+                android:background="#EEEDFC"
                 android:paddingStart="8sp"
                 android:paddingEnd="0sp"
                 android:text="@string/email"/>
@@ -84,13 +94,23 @@
             <TextView
                 android:id="@+id/txt_email"
                 android:layout_width="0sp"
-                android:layout_height="35dp"
+                android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:gravity="center|left"
                 android:textSize="12sp"
+                android:background="#E6E4FB"
                 android:paddingStart="5sp"
                 android:paddingEnd="0sp"
                 android:text="@string/address"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0.50sp"
+            android:background="@color/GRAY"
+            android:layout_marginStart="30sp"
+            android:layout_marginEnd="30sp">
 
         </LinearLayout>
 
@@ -100,15 +120,15 @@
             android:orientation="horizontal"
             android:gravity="center"
             android:layout_marginStart="30sp"
-            android:layout_marginEnd="20sp"
-            android:background="#EEEDFC">
+            android:layout_marginEnd="30sp">
 
             <TextView
                 android:layout_width="0sp"
-                android:layout_height="35dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center|left"
                 android:textSize="12sp"
+                android:background="#EEEDFC"
                 android:paddingStart="8sp"
                 android:paddingEnd="0sp"
                 android:text="@string/phoneText"/>
@@ -116,13 +136,23 @@
             <TextView
                 android:id="@+id/txt_phone"
                 android:layout_width="0sp"
-                android:layout_height="35dp"
+                android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:gravity="center|left"
                 android:textSize="12sp"
+                android:background="#E6E4FB"
                 android:paddingStart="5sp"
                 android:paddingEnd="0sp"
                 android:text="@string/address"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0.50sp"
+            android:background="@color/GRAY"
+            android:layout_marginStart="30sp"
+            android:layout_marginEnd="30sp">
 
         </LinearLayout>
 
@@ -132,15 +162,15 @@
             android:orientation="horizontal"
             android:gravity="center"
             android:layout_marginStart="30sp"
-            android:layout_marginEnd="20sp"
-            android:background="#E6E4FB">
+            android:layout_marginEnd="30sp">
 
             <TextView
                 android:layout_width="0sp"
-                android:layout_height="35dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center|left"
                 android:paddingStart="8sp"
+                android:background="#EEEDFC"
                 android:textSize="12sp"
                 android:paddingEnd="0sp"
                 android:text="@string/address"/>
@@ -148,10 +178,11 @@
             <TextView
                 android:id="@+id/txt_address"
                 android:layout_width="0sp"
-                android:layout_height="35dp"
+                android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:gravity="center|left"
                 android:paddingStart="5sp"
+                android:background="#E6E4FB"
                 android:textSize="12sp"
                 android:paddingEnd="0sp"
                 android:text="@string/address"/>

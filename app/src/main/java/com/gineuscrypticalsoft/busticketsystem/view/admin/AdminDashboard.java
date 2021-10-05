@@ -36,6 +36,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 import com.gineuscrypticalsoft.busticketsystem.R;
+import com.gineuscrypticalsoft.busticketsystem.utils.Constant;
 import com.gineuscrypticalsoft.busticketsystem.view.MainActivity;
 import com.gineuscrypticalsoft.busticketsystem.view.profile.Profile;
 import com.gineuscrypticalsoft.busticketsystem.view.profile.Profile_update;
@@ -63,12 +64,6 @@ public class AdminDashboard extends AppCompatActivity {
     TextView txtStartTime, txtEndTime, txtLastSerialId;
     Spinner spinnerFromCity, spinnerToCity;
     String fromCity= "", toCity= "";
-    String[] cityList= {"Dhaka", "Faridpur", "Gazipur", "Gopalganj", "Kishoreganj", "Madaripur", "Manikganj", "Munshiganj", "Narayanganj", "Narsingdi", "Rajbari",
-            "Shariatpur", "Tangail", "Bagerhat", "Chuadanga", "Jessore", "Jhenaidah", "Khulna", "Kushtia", "Magura", "Meherpur", "Narail", "Satkhira", "Jamalpur",
-            "Mymensingh", "Netrokona", "Sherpur", "Bogra", "Joypurhat", "Naogaon", "Natore", "Chapainawabganj", "Pabna", "Rajshahi", "Sirajganj", "Dinajpur",
-            "Gaibandha", "Kurigram", "Lalmonirhat", "Nilphamari", "Panchagarh", "Rangpur", "Thakurgaon", "Habiganj", "Moulvibazar", "Sunamganj", "Sylhet",
-            "Barguna", "Barisal", "Bhola", "Jhalokati", "Patuakhali", "Pirojpur", "Bandarban", "Brahmanbaria", "Chandpur", "Chittagong", "Comilla", "Cox's Bazar",
-            "Feni", "Khagrachhari", "Lakshmipur", "Noakhali", "Rangamati"};
     TimePicker timePicker;
     ImageView imageViewCar;
     int cameraCount= 0;
@@ -102,9 +97,9 @@ public class AdminDashboard extends AppCompatActivity {
         String string= "last upload serial: "+getId;
         txtLastSerialId.setText(string);
 
-        Arrays.sort(cityList);
-        spinnerFromCity.setAdapter(new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, cityList));
-        spinnerToCity.setAdapter(new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, cityList));
+        Arrays.sort(Constant.CITY_LIST);
+        spinnerFromCity.setAdapter(new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, Constant.CITY_LIST));
+        spinnerToCity.setAdapter(new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, Constant.CITY_LIST));
 
         imageViewCar.setOnClickListener(new View.OnClickListener() {
             @Override

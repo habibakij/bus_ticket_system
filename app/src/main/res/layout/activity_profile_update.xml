@@ -19,7 +19,7 @@
             android:id="@+id/profile_update_image"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:src="@drawable/account_circle_24"/>
+            android:src="@drawable/profileimage"/>
 
 
     </LinearLayout>
@@ -50,7 +50,7 @@
             android:singleLine="true"
             android:maxLines="1"
             android:textColor="@color/black"
-            android:textColorHint="@color/black"
+            android:textColorHint="@color/GRAY"
             android:textColorHighlight="@color/white"/>
 
         <EditText
@@ -71,7 +71,7 @@
             android:singleLine="true"
             android:maxLines="1"
             android:textColor="@color/black"
-            android:textColorHint="@color/black"
+            android:textColorHint="@color/GRAY"
             android:textColorHighlight="@color/white"/>
 
         <EditText
@@ -81,7 +81,7 @@
             android:layout_margin="10dp"
             android:paddingStart="2sp"
             android:paddingEnd="0sp"
-            android:background="@drawable/email_round"
+            android:background="@drawable/profile_round"
             android:drawableStart="@drawable/ic_baseline_home"
             android:drawablePadding="10dp"
             app:drawableTint="@color/purple_500"
@@ -91,7 +91,7 @@
             android:singleLine="true"
             android:maxLines="1"
             android:textColor="@color/black"
-            android:textColorHint="@color/black"
+            android:textColorHint="@color/GRAY"
             android:textColorHighlight="@color/white"/>
 
 

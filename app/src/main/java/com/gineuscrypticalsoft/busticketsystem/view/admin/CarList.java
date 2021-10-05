@@ -9,6 +9,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Toast;
 
 import com.gineuscrypticalsoft.busticketsystem.R;
@@ -38,6 +40,7 @@ public class CarList extends AppCompatActivity {
     CarListAdapter carListAdapter;
     int getId;
     String TAG= "car_list";
+    Animation top;
 
     @Override
     protected void onStart() {
@@ -52,6 +55,8 @@ public class CarList extends AppCompatActivity {
         recyclerView= findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
+        top= AnimationUtils.loadAnimation(this, R.anim.top);
+        recyclerView.setAnimation(top);
 
         sharedPref = this.getSharedPreferences(getString(R.string.SAVE_ID), Context.MODE_PRIVATE);
         getId = sharedPref.getInt("id", 0);

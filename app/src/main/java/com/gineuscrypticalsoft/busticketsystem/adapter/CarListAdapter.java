@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.gineuscrypticalsoft.busticketsystem.R;
@@ -15,7 +17,7 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.CarViewHolder> {
-
+    OnItemClickListener mListener;
     Context context;
     List<CarListModel> carListModel;
     public CarListAdapter(Context context, List<CarListModel> carListModel){
@@ -35,7 +37,7 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.CarViewH
         CarListModel item= carListModel.get(position);
         holder.carItemName.setText(item.getCarName());
         holder.carItemPrice.setText(item.getSeatRent()+" TK");
-        holder.carItemAcNon.setText(item.getAcType());
+        holder.carItemAcNon.setText("Coach: "+item.getAcType());
         holder.carItemDTime.setText(item.getStartTime());
         holder.carItemATime.setText(item.getEndTime());
         holder.carItemFrom.setText("From: "+item.getFromCity());
@@ -49,7 +51,7 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.CarViewH
         return carListModel.size();
     }
 
-    public static class CarViewHolder extends RecyclerView.ViewHolder {
+    public class CarViewHolder extends RecyclerView.ViewHolder implements OnItemClickListener {
 
         TextView carItemName, carItemPrice, carItemAcNon, carItemDTime, carItemATime, carItemFrom, carItemTo;
         ImageView carItemImage;
@@ -65,5 +67,16 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.CarViewH
             carItemTo= itemView.findViewById(R.id.car_item_to);
             carItemImage= itemView.findViewById(R.id.car_item_image);
         }
+
+        @Override
+        public void onAdapterItemClick(int position) {
+
+        }
     }
+
+    interface OnItemClickListener {
+        void onAdapterItemClick(int position);
+    }
+
+
 }

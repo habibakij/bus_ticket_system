@@ -46,18 +46,22 @@
                     android:textSize="12sp"
                     android:textColor="@color/purple_500"/>
 
-                <EditText
+
+                <androidx.appcompat.widget.AppCompatAutoCompleteTextView
                     android:id="@+id/edit_text_from_city"
                     android:layout_width="match_parent"
                     android:layout_height="40sp"
                     android:hint="@string/enter_city"
+                    android:textColorHint="@color/GRAY"
                     android:textSize="12sp"
                     android:background="@drawable/round_edittext"
                     android:drawableStart="@drawable/location_on_24"
                     android:drawablePadding="5sp"
                     android:drawableTint="@color/purple_500"
                     android:maxLines="1"
-                    android:singleLine="true"/>
+                    android:singleLine="true">
+
+                </androidx.appcompat.widget.AppCompatAutoCompleteTextView>
 
 
             </LinearLayout>
@@ -75,18 +79,21 @@
                     android:textSize="12sp"
                     android:textColor="@color/purple_500"/>
 
-                <EditText
+                <androidx.appcompat.widget.AppCompatAutoCompleteTextView
                     android:id="@+id/edit_text_to_city"
                     android:layout_width="match_parent"
                     android:layout_height="40sp"
                     android:hint="@string/enter_city"
+                    android:textColorHint="@color/GRAY"
                     android:textSize="12sp"
                     android:background="@drawable/round_edittext"
                     android:drawableStart="@drawable/location_on_24"
                     android:drawablePadding="5sp"
                     android:drawableTint="@color/purple_500"
                     android:maxLines="1"
-                    android:singleLine="true"/>
+                    android:singleLine="true">
+
+                </androidx.appcompat.widget.AppCompatAutoCompleteTextView>
 
 
             </LinearLayout>
@@ -132,6 +139,7 @@
                     android:paddingEnd="5sp"
                     android:layout_height="40sp"
                     android:hint="@string/select_your_journey_date"
+                    android:textColorHint="@color/GRAY"
                     android:gravity="center|start"
                     android:textSize="12sp"
                     android:textColor="@color/black"
@@ -139,7 +147,8 @@
                     android:drawableTint="@color/purple_500"
                     android:maxLines="1"
                     android:singleLine="true"
-                    app:drawableEndCompat="@drawable/calendar_today_24" />
+                    android:drawablePadding="5sp"
+                    android:drawableStart="@drawable/calendar_today_24" />
 
 
             </LinearLayout>
