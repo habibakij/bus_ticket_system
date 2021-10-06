@@ -77,6 +77,7 @@ public class Search extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 kProgressHUD.dismiss();
                 if(snapshot.exists()){
+                    setClickListener();
                     carListModel= new CarListModel();
                     carListModel.setCarName(snapshot.child("carName").getValue().toString());
                     carListModel.setSeatRent((snapshot.child("seatRent").getValue()).toString());
@@ -90,7 +91,7 @@ public class Search extends AppCompatActivity {
                     carListModelList.add(carListModel);
                     userCarListAdapter = new UserCarListAdapter(Search.this, carListModelList, mListener);
                     recyclerViewSearch.setAdapter(userCarListAdapter);
-                    setClickListener();
+
                 } else {
                     Toast.makeText(Search.this, "Data Not Found", Toast.LENGTH_SHORT).show();
                 }
@@ -109,8 +110,16 @@ public class Search extends AppCompatActivity {
         mListener= new UserCarListAdapter.OnItemListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Toast.makeText(Search.this, "clicked: "+carListModelList.get(position).getCarName(), Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(Search.this, CarSelect.class));
+                Toast.makeText(Search.this, "select: "+carListModelList.get(position).getCarName(), Toast.LENGTH_SHORT).show();
+                Intent intent= new Intent(Search.this, CarSelect.class);
+                intent.putExtra("selectName", carListModelList.get(position).getCarName());
+                intent.putExtra("selectDateTime", carListModelList.get(position).getStartTime());
+                intent.putExtra("selectRent", carListModelList.get(position).getSeatRent());
+                intent.putExtra("selectAcType", carListModelList.get(position).getAcType());
+                intent.putExtra("selectFrom", carListModelList.get(position).getFromCity());
+                intent.putExtra("selectTo", carListModelList.get(position).getToCity());
+                startActivity(intent);
+                finish();
             }
         };
     }

@@ -44,13 +44,18 @@
     <string name="carId">car serial id</string>
     <string name="SAVE_ID">SAVE_ID_FOR_NEXT_UPLOAD</string>
     <string name="SAVE_SEARCHING_ID">SAVE_SEARCHING_ID_FOR_SEARCH_ITEM</string>
-    <string name="seatRent">seat rent</string>
+    <string name="seatRent">Seat Rent</string>
     <string name="carPriceSample">850 TK</string>
     <string name="departure_time">Departure Time</string>
     <string name="arrivalTime">Arrival Time</string>
     <string name="timeSample1">10:00 AM</string>
     <string name="timeSample2">7:00 PM</string>
     <string name="lastUploadSerial">last upload serial</string>
+    <string name="btnContinue">Continue</string>
+    <string name="vehiclesInformation">Vehicles Information</string>
+    <string name="journeyDateTime">Date &amp; Time</string>
+    <string name="coachType">Coach Type</string>
+    <string name="select_seat_plan">Select Seat Plan</string>
 
 
 </resources>
