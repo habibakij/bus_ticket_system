@@ -14,20 +14,18 @@ import android.view.animation.AnimationUtils;
 import android.widget.Toast;
 
 import com.gineuscrypticalsoft.busticketsystem.R;
-import com.gineuscrypticalsoft.busticketsystem.adapter.CarListAdapter;
+import com.gineuscrypticalsoft.busticketsystem.adapter.AdminCarListAdapter;
+import com.gineuscrypticalsoft.busticketsystem.adapter.UserCarListAdapter;
 import com.gineuscrypticalsoft.busticketsystem.model.CarListModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 import com.kaopiz.kprogresshud.KProgressHUD;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class CarList extends AppCompatActivity {
 
@@ -35,9 +33,9 @@ public class CarList extends AppCompatActivity {
     RecyclerView recyclerView;
     DatabaseReference databaseReference;
     SharedPreferences sharedPref;
-    List<CarListModel> carListModelList;
     CarListModel carListModel;
-    CarListAdapter carListAdapter;
+    List<CarListModel> carListModelList;
+    AdminCarListAdapter adminCarListAdapter;
     int getId;
     String TAG= "car_list";
     Animation top;
@@ -97,8 +95,8 @@ public class CarList extends AppCompatActivity {
                     carListModel.setImage((snapshot.child("image").getValue()).toString());
                     Log.d(TAG, "__test: "+carListModel.getCarName());
                     carListModelList.add(carListModel);
-                    carListAdapter= new CarListAdapter(CarList.this, carListModelList);
-                    recyclerView.setAdapter(carListAdapter);
+                    adminCarListAdapter= new AdminCarListAdapter(CarList.this, carListModelList);
+                    recyclerView.setAdapter(adminCarListAdapter);
                 } else {
                     Toast.makeText(CarList.this, "Data Not Found", Toast.LENGTH_SHORT).show();
                 }

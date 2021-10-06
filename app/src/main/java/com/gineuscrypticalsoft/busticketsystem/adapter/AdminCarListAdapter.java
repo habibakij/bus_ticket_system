@@ -1,14 +1,11 @@
 package com.gineuscrypticalsoft.busticketsystem.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.gineuscrypticalsoft.busticketsystem.R;
@@ -16,24 +13,24 @@ import com.gineuscrypticalsoft.busticketsystem.model.CarListModel;
 import com.squareup.picasso.Picasso;
 import java.util.List;
 
-public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.CarViewHolder> {
-    OnItemClickListener mListener;
+public class AdminCarListAdapter extends RecyclerView.Adapter<AdminCarListAdapter.AdminViewHolder> {
+
     Context context;
     List<CarListModel> carListModel;
-    public CarListAdapter(Context context, List<CarListModel> carListModel){
+    public AdminCarListAdapter(Context context, List<CarListModel> carListModel){
         this.context= context;
         this.carListModel= carListModel;
     }
 
     @NonNull
     @Override
-    public CarViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public AdminViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.cal_list_item, parent, false);
-        return new CarViewHolder(view);
+        return new AdminViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CarViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull AdminViewHolder holder, int position) {
         CarListModel item= carListModel.get(position);
         holder.carItemName.setText(item.getCarName());
         holder.carItemPrice.setText(item.getSeatRent()+" TK");
@@ -43,20 +40,19 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.CarViewH
         holder.carItemFrom.setText("From: "+item.getFromCity());
         holder.carItemTo.setText("To: "+item.getToCity());
         Picasso.get().load(item.getImage()).into(holder.carItemImage);
+
     }
 
     @Override
     public int getItemCount() {
-        Log.d("TAG", "get_id: "+carListModel.size());
         return carListModel.size();
     }
 
-    public class CarViewHolder extends RecyclerView.ViewHolder implements OnItemClickListener {
-
+    public static class AdminViewHolder extends RecyclerView.ViewHolder {
         TextView carItemName, carItemPrice, carItemAcNon, carItemDTime, carItemATime, carItemFrom, carItemTo;
         ImageView carItemImage;
 
-        public CarViewHolder(@NonNull View itemView) {
+        public AdminViewHolder(@NonNull View itemView) {
             super(itemView);
             carItemName= itemView.findViewById(R.id.car_item_name);
             carItemPrice= itemView.findViewById(R.id.car_item_price);
@@ -67,16 +63,5 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.CarViewH
             carItemTo= itemView.findViewById(R.id.car_item_to);
             carItemImage= itemView.findViewById(R.id.car_item_image);
         }
-
-        @Override
-        public void onAdapterItemClick(int position) {
-
-        }
     }
-
-    interface OnItemClickListener {
-        void onAdapterItemClick(int position);
-    }
-
-
 }

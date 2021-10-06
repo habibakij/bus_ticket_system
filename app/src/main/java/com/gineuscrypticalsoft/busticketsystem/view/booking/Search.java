@@ -5,21 +5,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.AdapterView;
 import android.widget.Toast;
 
 import com.gineuscrypticalsoft.busticketsystem.R;
-import com.gineuscrypticalsoft.busticketsystem.adapter.CarListAdapter;
+import com.gineuscrypticalsoft.busticketsystem.adapter.UserCarListAdapter;
 import com.gineuscrypticalsoft.busticketsystem.model.CarListModel;
-import com.gineuscrypticalsoft.busticketsystem.view.admin.CarList;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,7 +26,7 @@ import com.kaopiz.kprogresshud.KProgressHUD;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Search extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class Search extends AppCompatActivity {
 
     String TAG= "search_activity";
     ArrayList<String> matchingID;
@@ -38,9 +34,10 @@ public class Search extends AppCompatActivity implements AdapterView.OnItemClick
     DatabaseReference databaseReference;
     List<CarListModel> carListModelList;
     CarListModel carListModel;
-    CarListAdapter carListAdapter;
+    UserCarListAdapter userCarListAdapter;
     RecyclerView recyclerViewSearch;
     Animation top;
+    UserCarListAdapter.OnItemListener mListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,8 +88,9 @@ public class Search extends AppCompatActivity implements AdapterView.OnItemClick
                     carListModel.setImage((snapshot.child("image").getValue()).toString());
                     Log.d(TAG, "__test: "+carListModel.getCarName());
                     carListModelList.add(carListModel);
-                    carListAdapter= new CarListAdapter(Search.this, carListModelList);
-                    recyclerViewSearch.setAdapter(carListAdapter);
+                    userCarListAdapter = new UserCarListAdapter(Search.this, carListModelList, mListener);
+                    recyclerViewSearch.setAdapter(userCarListAdapter);
+                    setClickListener();
                 } else {
                     Toast.makeText(Search.this, "Data Not Found", Toast.LENGTH_SHORT).show();
                 }
@@ -107,8 +105,13 @@ public class Search extends AppCompatActivity implements AdapterView.OnItemClick
 
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(getApplicationContext(), "clicked on " +position, Toast.LENGTH_SHORT).show();
+    private void setClickListener() {
+        mListener= new UserCarListAdapter.OnItemListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Toast.makeText(Search.this, "clicked: "+carListModelList.get(position).getCarName(), Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(Search.this, CarSelect.class));
+            }
+        };
     }
 }
