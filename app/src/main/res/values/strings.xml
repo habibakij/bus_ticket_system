@@ -55,7 +55,7 @@
     <string name="vehiclesInformation">Vehicles Information</string>
     <string name="journeyDateTime">Date &amp; Time</string>
     <string name="coachType">Coach Type</string>
-    <string name="select_seat_plan">Select Seat Plan</string>
+    <string name="select_seat_plan">Choose Seat Plan</string>
 
 
 </resources>
