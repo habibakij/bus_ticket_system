@@ -33,7 +33,7 @@ import java.util.Objects;
 
 public class Profile extends AppCompatActivity {
 
-    private FirebaseAuth mAuth;
+    FirebaseAuth mAuth;
     KProgressHUD kProgressHUD;
     private FirebaseUser mUser;
     DatabaseReference databaseReference;
@@ -99,7 +99,6 @@ public class Profile extends AppCompatActivity {
                     txtAddress.setText(snapshot.child("address").getValue().toString());
                     String image= snapshot.child("image").getValue().toString();
                     Log.d(TAG,"image_uri: "+image);
-                    //imageView.setImageURI(Uri.parse(image));
                     Picasso.get().load(image).into(imageView);
                 } else {
                     Toast.makeText(Profile.this, "Please update your profile", Toast.LENGTH_SHORT).show();

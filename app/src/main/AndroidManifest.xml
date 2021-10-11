@@ -26,7 +26,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BusTicketSystem">
-        <activity android:name=".view.booking.CarSelect"></activity>
+        <activity android:name=".view.booking.SelectPayment"></activity>
+        <activity android:name=".view.booking.CarSelect" />
         <activity android:name=".view.booking.Search" />
         <activity android:name=".view.admin.CarList" />
         <activity android:name=".view.admin.AdminDashboard" />

@@ -59,7 +59,7 @@
                 android:background="#E6E4FB"
                 android:paddingStart="5sp"
                 android:paddingEnd="0sp"
-                android:text="@string/address"/>
+                android:text="@string/name"/>
 
         </LinearLayout>
 
@@ -101,7 +101,7 @@
                 android:background="#E6E4FB"
                 android:paddingStart="5sp"
                 android:paddingEnd="0sp"
-                android:text="@string/address"/>
+                android:text="@string/email"/>
 
         </LinearLayout>
 
@@ -143,7 +143,7 @@
                 android:background="#E6E4FB"
                 android:paddingStart="5sp"
                 android:paddingEnd="0sp"
-                android:text="@string/address"/>
+                android:text="@string/phoneText"/>
 
         </LinearLayout>
 

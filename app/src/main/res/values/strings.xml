@@ -16,11 +16,11 @@
     <string name="splash_text">Have a nice journey.</string>
     <string name="todo">TODO</string>
     <string name="enter_city">Enter City</string>
-    <string name="pick_your_journey_date">Pick Your Journey Date</string>
+    <string name="pick_your_journey_date">Pick your journey date</string>
     <string name="select_your_journey_date">Select your journey date</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
-    <string name="phone">01711-000111</string>
+    <string name="phone">01700-000000</string>
     <string name="phoneText">Phone</string>
     <string name="remember_password">Remember Password</string>
     <string name="forget_password">Forget Password</string>
@@ -56,6 +56,9 @@
     <string name="journeyDateTime">Date &amp; Time</string>
     <string name="coachType">Coach Type</string>
     <string name="select_seat_plan">Choose Seat Plan</string>
+    <string name="seatNo">Seat No</string>
+    <string name="holderInformation">Ticket Holder Information</string>
+    <string name="paymentInformation">Payment Information</string>
 
 
 </resources>

@@ -2,12 +2,15 @@ package com.gineuscrypticalsoft.busticketsystem.view.booking;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.gineuscrypticalsoft.busticketsystem.R;
 
@@ -16,8 +19,9 @@ public class CarSelect extends AppCompatActivity {
     TextView seatA1, seatA2, seatA3, seatA4, seatB1, seatB2, seatB3, seatB4, seatC1, seatC2, seatC3, seatC4, seatD1, seatD2, seatD3, seatD4, seatE1, seatE2, seatE3, seatE4,
             seatF1, seatF2, seatF3, seatF4, seatG1, seatG2, seatG3, seatG4, seatH1, seatH2, seatH3, seatH4, seatI1, seatI2, seatI3, seatI4, seatJ1, seatJ2, seatJ3, seatJ4;
     String name, dateTime, rent, acType, form, to;
-    TextView textViewSelectName, textViewSelectDateTime, textViewSelectRent, textViewSelectAcType, textViewSelectFrom, textViewSelectTo, textViewSeatPlan,
-            textViewChooseSeat;
+    TextView textViewSelectName, textViewSelectDateTime, textViewSelectRent, textViewSelectAcType, textViewSelectFrom, textViewSelectTo, textViewChooseSeat;
+    Button btnSeatPlan, btnContinue;
+
     LinearLayout layoutSeatPlan;
     Animation top;
 
@@ -34,11 +38,29 @@ public class CarSelect extends AppCompatActivity {
         form= getIntent().getExtras().getString("selectFrom");
         to= getIntent().getExtras().getString("selectTo");
 
-        textViewSeatPlan.setOnClickListener(new View.OnClickListener() {
+        btnSeatPlan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 layoutSeatPlan.setVisibility(View.VISIBLE);
                 layoutSeatPlan.setAnimation(top);
+            }
+        });
+        btnContinue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (textViewChooseSeat.getText().toString().isEmpty()){
+                    Toast.makeText(CarSelect.this, "Please select seat plan", Toast.LENGTH_SHORT).show();
+                } else {
+                    Intent intent= new Intent(CarSelect.this, SelectPayment.class);
+                    intent.putExtra("selectName", name);
+                    intent.putExtra("selectDateTime", dateTime);
+                    intent.putExtra("selectRent", rent);
+                    intent.putExtra("selectAcType", acType);
+                    intent.putExtra("selectFrom", form);
+                    intent.putExtra("selectTo", to);
+                    intent.putExtra("selectSeat", textViewChooseSeat.getText().toString());
+                    startActivity(intent);
+                }
             }
         });
         selectSeat();
@@ -73,7 +95,8 @@ public class CarSelect extends AppCompatActivity {
         textViewSelectAcType= findViewById(R.id.txt_select_ac_type);
         textViewSelectFrom= findViewById(R.id.txt_select_from);
         textViewSelectTo= findViewById(R.id.txt_select_to);
-        textViewSeatPlan= findViewById(R.id.txt_choose_seat_plan);
+        btnSeatPlan= findViewById(R.id.btn_choose_seat_plan);
+        btnContinue= findViewById(R.id.btn_continue);
         layoutSeatPlan= findViewById(R.id.layout_seat_plan);
         top= AnimationUtils.loadAnimation(this, R.anim.top);
         textViewChooseSeat= findViewById(R.id.txt_choose_seat);
@@ -94,7 +117,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatA1.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatA1.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatA1.getText().toString());
+                textViewChooseSeat.setText(seatA1.getText().toString());
 
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA3.setBackgroundColor(getResources().getColor(R.color.white));
@@ -182,7 +205,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatA2.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatA2.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatA2.getText().toString());
+                textViewChooseSeat.setText( seatA2.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA3.setBackgroundColor(getResources().getColor(R.color.white));
@@ -270,7 +293,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatA3.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatA3.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatA3.getText().toString());
+                textViewChooseSeat.setText( seatA3.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -358,7 +381,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatA4.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatA4.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatA4.getText().toString());
+                textViewChooseSeat.setText( seatA4.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -447,7 +470,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatB1.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatB1.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatB1.getText().toString());
+                textViewChooseSeat.setText( seatB1.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -535,7 +558,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatB2.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatB2.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatB2.getText().toString());
+                textViewChooseSeat.setText( seatB2.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -623,7 +646,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatB3.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatB3.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatB3.getText().toString());
+                textViewChooseSeat.setText( seatB3.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -711,7 +734,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatB4.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatB4.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatB4.getText().toString());
+                textViewChooseSeat.setText( seatB4.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -800,7 +823,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatC1.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatC1.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatC1.getText().toString());
+                textViewChooseSeat.setText( seatC1.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -888,7 +911,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatC2.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatC2.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatC2.getText().toString());
+                textViewChooseSeat.setText( seatC2.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -976,7 +999,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatC3.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatC3.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatC3.getText().toString());
+                textViewChooseSeat.setText( seatC3.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -1064,7 +1087,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatC4.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatC4.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatC4.getText().toString());
+                textViewChooseSeat.setText( seatC4.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -1153,7 +1176,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatD1.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatD1.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatD1.getText().toString());
+                textViewChooseSeat.setText( seatD1.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -1241,7 +1264,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatD2.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatD2.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatD2.getText().toString());
+                textViewChooseSeat.setText( seatD2.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -1329,7 +1352,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatD3.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatD3.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatD3.getText().toString());
+                textViewChooseSeat.setText( seatD3.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -1417,7 +1440,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatD4.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatD4.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatD4.getText().toString());
+                textViewChooseSeat.setText( seatD4.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -1506,7 +1529,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatE1.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatE1.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatE1.getText().toString());
+                textViewChooseSeat.setText( seatE1.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -1594,7 +1617,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatE2.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatE2.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatE2.getText().toString());
+                textViewChooseSeat.setText( seatE2.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -1682,7 +1705,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatE3.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatE3.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatE3.getText().toString());
+                textViewChooseSeat.setText( seatE3.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -1770,7 +1793,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatE4.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatE4.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatE4.getText().toString());
+                textViewChooseSeat.setText( seatE4.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -1859,7 +1882,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatF1.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatF1.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatF1.getText().toString());
+                textViewChooseSeat.setText( seatF1.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -1947,7 +1970,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatF2.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatF2.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatF2.getText().toString());
+                textViewChooseSeat.setText( seatF2.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -2035,7 +2058,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatF3.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatF3.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatF3.getText().toString());
+                textViewChooseSeat.setText( seatF3.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -2123,7 +2146,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatF4.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatF4.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatF4.getText().toString());
+                textViewChooseSeat.setText( seatF4.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -2212,7 +2235,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatG1.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatG1.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatG1.getText().toString());
+                textViewChooseSeat.setText( seatG1.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -2300,7 +2323,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatG2.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatG2.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatG2.getText().toString());
+                textViewChooseSeat.setText( seatG2.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -2388,7 +2411,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatG3.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatG3.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatG3.getText().toString());
+                textViewChooseSeat.setText( seatG3.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -2476,7 +2499,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatG4.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatG4.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatG4.getText().toString());
+                textViewChooseSeat.setText( seatG4.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -2565,7 +2588,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatH1.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatH1.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatH1.getText().toString());
+                textViewChooseSeat.setText( seatH1.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -2653,7 +2676,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatH2.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatH2.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatH2.getText().toString());
+                textViewChooseSeat.setText( seatH2.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -2741,7 +2764,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatH3.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatH3.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatH3.getText().toString());
+                textViewChooseSeat.setText( seatH3.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -2829,7 +2852,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatH4.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatH4.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatH4.getText().toString());
+                textViewChooseSeat.setText( seatH4.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -2918,7 +2941,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatI1.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatI1.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatI1.getText().toString());
+                textViewChooseSeat.setText( seatI1.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -3006,7 +3029,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatI2.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatI2.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatI2.getText().toString());
+                textViewChooseSeat.setText( seatI2.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -3094,7 +3117,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatI3.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatI3.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatI3.getText().toString());
+                textViewChooseSeat.setText( seatI3.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -3182,7 +3205,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatI4.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatI4.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatI4.getText().toString());
+                textViewChooseSeat.setText( seatI4.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -3271,7 +3294,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatJ1.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatJ1.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatJ1.getText().toString());
+                textViewChooseSeat.setText( seatJ1.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -3359,7 +3382,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatJ2.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatJ2.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatJ2.getText().toString());
+                textViewChooseSeat.setText( seatJ2.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -3447,7 +3470,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatJ3.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatJ3.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatJ3.getText().toString());
+                textViewChooseSeat.setText( seatJ3.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));
@@ -3535,7 +3558,7 @@ public class CarSelect extends AppCompatActivity {
             public void onClick(View v) {
                 seatJ4.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 seatJ4.setTextColor(getResources().getColor(R.color.white));
-                textViewChooseSeat.setText("Choose: "+seatJ4.getText().toString());
+                textViewChooseSeat.setText( seatJ4.getText().toString());
 
                 seatA1.setBackgroundColor(getResources().getColor(R.color.white));
                 seatA2.setBackgroundColor(getResources().getColor(R.color.white));

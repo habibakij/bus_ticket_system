@@ -43,7 +43,7 @@ public class Profile_update extends AppCompatActivity {
     ImageView imageViewProfile;
     EditText editTextName, editTextPhone, editTextAddress;
     private static final int GALLERY_REQUEST_CODE = 100;
-    int cameraCount= 0;
+    int cameraCount= 0, imageCount= 0;
     Uri imageUri;
     DatabaseReference databaseReference;
     StorageReference storageReference;
@@ -78,8 +78,10 @@ public class Profile_update extends AppCompatActivity {
                     Toast.makeText(Profile_update.this, "Please Enter Mobile", Toast.LENGTH_SHORT).show();
                 } else if (editTextAddress.getText().toString().isEmpty()){
                     Toast.makeText(Profile_update.this, "Please Enter Address", Toast.LENGTH_SHORT).show();
-                } else {
+                } else if (imageCount > 0){
                     uploadFirebaseStorage();
+                } else  {
+                    Toast.makeText(Profile_update.this, "Please Select Image", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -127,6 +129,7 @@ public class Profile_update extends AppCompatActivity {
         });
 
         AlertDialog dialog = builder.create();
+        dialog.getWindow().getAttributes().windowAnimations= R.style.dialogAnimation;
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         WindowManager.LayoutParams wmlp = dialog.getWindow().getAttributes();
         wmlp.gravity = Gravity.BOTTOM;
@@ -139,6 +142,7 @@ public class Profile_update extends AppCompatActivity {
         if (cameraCount > 0) {
             try {
                 Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+                imageCount++;
                 imageViewProfile.setImageBitmap(bitmap);
             } catch (Exception e) {
                 Log.d(TAG, "camera_error: "+e.getMessage());
@@ -149,6 +153,7 @@ public class Profile_update extends AppCompatActivity {
                 imageUri = data.getData();
                 try {
                     Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
+                    imageCount++;
                     imageViewProfile.setImageBitmap(bitmap);
                 } catch (Exception e) {
                     Log.d(TAG, "gallery_error: "+e.getMessage());

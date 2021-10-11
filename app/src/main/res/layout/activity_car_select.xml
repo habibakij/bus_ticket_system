@@ -258,15 +258,17 @@
             android:orientation="vertical"
             android:padding="10sp">
 
-            <TextView
-                android:id="@+id/txt_choose_seat_plan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <Button
+                android:id="@+id/btn_choose_seat_plan"
+                android:layout_width="200sp"
+                android:layout_height="40dp"
                 android:layout_marginTop="20sp"
+                android:text="@string/select_seat_plan"
                 android:layout_gravity="center"
-                android:textSize="14sp"
-                android:textColor="@color/purple_500"
-                android:text="@string/select_seat_plan"/>
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                android:textColor="@color/white"
+                android:background="@drawable/login_round"/>
 
 
             <LinearLayout
@@ -274,7 +276,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -995,21 +998,38 @@
 
                 </LinearLayout>
 
-            </LinearLayout>
+                <LinearLayout
+                    android:layout_width="160sp"
+                    android:layout_height="30sp"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5sp"
+                    android:layout_gravity="end">
 
-            <TextView
-                android:id="@+id/txt_choose_seat"
-                android:layout_width="160sp"
-                android:layout_height="30sp"
-                android:layout_gravity="end"
-                android:layout_marginTop="5sp"
-                android:text="Choose"
-                android:textColor="@color/purple_500"
-                android:textSize="12sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="5sp"
+                        android:gravity="center_vertical"
+                        android:text="Choose: "
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:id="@+id/txt_choose_seat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text=""
+                        android:textColor="@color/purple_500"
+                        android:textSize="12sp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
 
             <Button
                 android:id="@+id/btn_continue"
-                android:layout_width="150sp"
+                android:layout_width="200sp"
                 android:layout_height="40dp"
                 android:layout_marginTop="20sp"
                 android:text="@string/btnContinue"

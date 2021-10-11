@@ -48,7 +48,7 @@ public class FirstFragment extends Fragment {
 
     TextView textView;
     Button btnSearch;
-    DatabaseReference databaseReference;
+    DatabaseReference databaseReference, databaseReferenceCount;
     AutoCompleteTextView editTextFromCity, editTextToCity;
     SharedPreferences sharedPref;
     KProgressHUD kProgressHUD;
@@ -56,6 +56,7 @@ public class FirstFragment extends Fragment {
     ArrayList<String> matchingID;
     ArrayAdapter<String> adapter;
     Calendar myCalendar = Calendar.getInstance();
+    long carListCount;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -72,10 +73,10 @@ public class FirstFragment extends Fragment {
                 .setCancellable(true)
                 .setAnimationSpeed(1)
                 .setDimAmount(0.5f);
-
+        childrenCount();
         matchingID= new ArrayList<>();
         sharedPref = getContext().getSharedPreferences(getString(R.string.SAVE_ID), Context.MODE_PRIVATE);
-        int getId = sharedPref.getInt("id", 0);
+        //int getId = sharedPref.getInt("id", 0);
 
         adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_dropdown_item_1line, Constant.CITY_LIST);
         editTextFromCity.setAdapter(adapter);
@@ -95,7 +96,7 @@ public class FirstFragment extends Fragment {
                     matchingID.clear();
                     String fromCity = editTextFromCity.getText().toString().trim();
                     String toCity = editTextToCity.getText().toString().trim();
-                    searchingCityFromDatabase(fromCity, toCity, getId);
+                    searchingCityFromDatabase(fromCity, toCity, carListCount);
                 }
             }
         });
@@ -135,8 +136,7 @@ public class FirstFragment extends Fragment {
         editTextToCity= view.findViewById(R.id.edit_text_to_city);
     }
 
-    void searchingCityFromDatabase(String city1, String city2, int getId) {
-
+    void searchingCityFromDatabase(String city1, String city2, long getId) {
         for(int i= 1; i<= getId; i++) {
             databaseReference = FirebaseDatabase.getInstance().getReference().child("CarList").child(String.valueOf(i));
             int finalI = i;
@@ -175,5 +175,23 @@ public class FirstFragment extends Fragment {
             }
         },5000);
 
+    }
+
+    void childrenCount(){
+        kProgressHUD.show();
+        databaseReferenceCount = FirebaseDatabase.getInstance().getReference().child("CarList");
+        databaseReferenceCount.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                kProgressHUD.dismiss();
+                carListCount= snapshot.getChildrenCount();
+                Log.d(TAG,"car_list: "+carListCount);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }

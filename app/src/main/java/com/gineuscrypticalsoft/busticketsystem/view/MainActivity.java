@@ -91,7 +91,6 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_administration) {
             Toast.makeText(this, "You Aren't Authorized", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.action_profile) {
-            Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(MainActivity.this, Profile.class));
         } else if (id == R.id.action_logout) {
             kProgressHUD.show();
