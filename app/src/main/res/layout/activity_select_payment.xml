@@ -527,6 +527,7 @@
                         android:background="#EEEDFC">
 
                         <ImageView
+                            android:id="@+id/image_bkash"
                             android:layout_width="0sp"
                             android:layout_weight="1"
                             android:layout_height="90sp"
@@ -535,6 +536,7 @@
                             android:scaleType="fitXY"/>
 
                         <ImageView
+                            android:id="@+id/image_rocket"
                             android:layout_width="0sp"
                             android:layout_weight="1"
                             android:layout_height="90sp"
@@ -543,6 +545,7 @@
                             android:scaleType="fitXY"/>
 
                         <ImageView
+                            android:id="@+id/image_tcash"
                             android:layout_width="0sp"
                             android:layout_weight="1"
                             android:layout_height="90sp"
@@ -560,6 +563,7 @@
                         android:background="#EEEDFC">
 
                         <ImageView
+                            android:id="@+id/image_ucash"
                             android:layout_width="0sp"
                             android:layout_weight="1"
                             android:layout_height="90sp"
@@ -570,6 +574,7 @@
                             android:scaleType="fitXY"/>
 
                         <ImageView
+                            android:id="@+id/image_surecash"
                             android:layout_width="0sp"
                             android:layout_weight="1"
                             android:layout_height="90sp"
@@ -580,6 +585,7 @@
                             android:scaleType="fitXY"/>
 
                         <ImageView
+                            android:id="@+id/image_easycash"
                             android:layout_width="0sp"
                             android:layout_weight="1"
                             android:layout_height="90sp"

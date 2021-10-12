@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +27,7 @@ import java.util.Objects;
 public class SelectPayment extends AppCompatActivity {
     TextView tvCarName, tvDateTime, tvCarRent, tvCarCoachType, tvCarFrom, tvCarTo;
     TextView tvHolderName, tvHolderEmail, tvHolderPhone, tvHolderBooking, tvHolderFrom, tvHolderTo;
+    ImageView imageBkash, imageRocket, imageTcash, imageUcash, imageSureCash, imageEasyCash;
     String carName, carDateTime, carRent, carCoachType, carFrom, carTo, holderBooking;
     FirebaseAuth mAuth;
     DatabaseReference databaseReference;
@@ -60,6 +63,7 @@ public class SelectPayment extends AppCompatActivity {
 
         setText();
         dataLoadFromFirebase();
+        selectPayment();
     }
 
     void FindView(){
@@ -80,6 +84,13 @@ public class SelectPayment extends AppCompatActivity {
         tvHolderBooking= findViewById(R.id.txt_payment_holders_total_seat);
         tvHolderFrom= findViewById(R.id.txt_payment_holders_form);
         tvHolderTo= findViewById(R.id.txt_payment_holders_to);
+
+        imageBkash= findViewById(R.id.image_bkash);
+        imageRocket= findViewById(R.id.image_rocket);
+        imageTcash= findViewById(R.id.image_tcash);
+        imageUcash= findViewById(R.id.image_ucash);
+        imageSureCash= findViewById(R.id.image_surecash);
+        imageEasyCash= findViewById(R.id.image_easycash);
     }
 
     void setText(){
@@ -115,4 +126,87 @@ public class SelectPayment extends AppCompatActivity {
             }
         });
     }
+
+    void selectPayment(){
+
+        imageBkash.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imageBkash.setBackgroundColor(getResources().getColor(R.color.purple_500));
+
+                imageRocket.setBackgroundColor(getResources().getColor(R.color.white));
+                imageTcash.setBackgroundColor(getResources().getColor(R.color.white));
+                imageUcash.setBackgroundColor(getResources().getColor(R.color.white));
+                imageSureCash.setBackgroundColor(getResources().getColor(R.color.white));
+                imageEasyCash.setBackgroundColor(getResources().getColor(R.color.white));
+            }
+        });
+
+        imageRocket.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imageRocket.setBackgroundColor(getResources().getColor(R.color.purple_500));
+
+                imageBkash.setBackgroundColor(getResources().getColor(R.color.white));
+                imageTcash.setBackgroundColor(getResources().getColor(R.color.white));
+                imageUcash.setBackgroundColor(getResources().getColor(R.color.white));
+                imageSureCash.setBackgroundColor(getResources().getColor(R.color.white));
+                imageEasyCash.setBackgroundColor(getResources().getColor(R.color.white));
+            }
+        });
+
+        imageTcash.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imageTcash.setBackgroundColor(getResources().getColor(R.color.purple_500));
+
+                imageRocket.setBackgroundColor(getResources().getColor(R.color.white));
+                imageBkash.setBackgroundColor(getResources().getColor(R.color.white));
+                imageUcash.setBackgroundColor(getResources().getColor(R.color.white));
+                imageSureCash.setBackgroundColor(getResources().getColor(R.color.white));
+                imageEasyCash.setBackgroundColor(getResources().getColor(R.color.white));
+            }
+        });
+
+        imageUcash.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imageUcash.setBackgroundColor(getResources().getColor(R.color.purple_500));
+
+                imageRocket.setBackgroundColor(getResources().getColor(R.color.white));
+                imageTcash.setBackgroundColor(getResources().getColor(R.color.white));
+                imageBkash.setBackgroundColor(getResources().getColor(R.color.white));
+                imageSureCash.setBackgroundColor(getResources().getColor(R.color.white));
+                imageEasyCash.setBackgroundColor(getResources().getColor(R.color.white));
+            }
+        });
+
+        imageSureCash.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imageSureCash.setBackgroundColor(getResources().getColor(R.color.purple_500));
+
+                imageRocket.setBackgroundColor(getResources().getColor(R.color.white));
+                imageTcash.setBackgroundColor(getResources().getColor(R.color.white));
+                imageUcash.setBackgroundColor(getResources().getColor(R.color.white));
+                imageBkash.setBackgroundColor(getResources().getColor(R.color.white));
+                imageEasyCash.setBackgroundColor(getResources().getColor(R.color.white));
+            }
+        });
+
+        imageEasyCash.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imageEasyCash.setBackgroundColor(getResources().getColor(R.color.purple_500));
+
+                imageRocket.setBackgroundColor(getResources().getColor(R.color.white));
+                imageTcash.setBackgroundColor(getResources().getColor(R.color.white));
+                imageUcash.setBackgroundColor(getResources().getColor(R.color.white));
+                imageSureCash.setBackgroundColor(getResources().getColor(R.color.white));
+                imageBkash.setBackgroundColor(getResources().getColor(R.color.white));
+            }
+        });
+    }
+
+
 }
